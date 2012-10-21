@@ -1,6 +1,5 @@
 "============================================================================================================
 "						aVIMRC beállítások 0.1 
-"						- github elsõ commit elõtt
 "============================================================================================================
 "						Plugin beállítások
 "============================================================================================================
@@ -122,9 +121,13 @@
 		let mapleader=","
 	"Dokumentum aljára ugrás
 		nnoremap <Leader>g G<cr>
+	"Nerdtree indítása
+		nnoremap <Leader>n :NERDTree<cr>
 	"vimrc újrasourceolása
-		noremap <Leader>vim :e $MYVIMRC
-		nnoremap <Leader><Leader>vim :so $MYVIMRC
+	"Egyelõre kikapcsoltam, mert a $MYVIMRC üres, ha a VIM -u {filenév}
+	"paranccsal indítok
+		"noremap <Leader>vim :e $MYVIMRC
+		"nnoremap <Leader><Leader>vim :so $MYVIMRC
 "============================================================================================================
 "						KURZORMOZGATÁS MAPPINGEK
 "============================================================================================================
@@ -173,7 +176,7 @@
 		nnoremap <F2> :bprevious<CR>
 	"Minden nyitott buffert elment 
 		"map <F5> :wa! <bar> mkview <cr>
-		map <F5> :wa! 
+		map <F5> :wa!<cr>
 	"Minden tabot elment egy "sessionsave" nevû file-ba.
 		map <F6> :mksession! sessionsave<cr>
 		map <F9> :so sessionsave <cr>
