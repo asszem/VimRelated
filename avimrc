@@ -1,0 +1,193 @@
+"============================================================================================================
+"						aVIMRC beállítások 0.1 
+"						- github elsõ commit elõtt
+"============================================================================================================
+"						Plugin beállítások
+"============================================================================================================
+"Pathogen plugin 
+	set nocp
+"	source $vimruntime\autoload\pathogen.vim
+	call pathogen#infect('c:\vimroot\bundle')
+	syntax on
+	filetype plugin indent on
+	filetype indent off
+"Nerdtree plugin
+	let NERDTreeShowBookmarks = 1
+"============================================================================================================
+"						Gyári beállítások
+"============================================================================================================
+	set nocompatible
+	source $VIMRUNTIME/vimrc_example.vim
+	source $VIMRUNTIME/mswin.vim
+	behave mswin
+	set diffexpr=MyDiff()
+	function MyDiff()
+	  let opt = '-a --binary '
+	  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+	  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+	  let arg1 = v:fname_in
+	  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+	  let arg2 = v:fname_new
+	  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+	  let arg3 = v:fname_out
+	  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+	  let eq = ''
+	  if $VIMRUNTIME =~ ' '
+	    if &sh =~ '\<cmd'
+	      let cmd = '""' . $VIMRUNTIME . '\diff"'
+	      let eq = '"'
+	    else
+	      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+	    endif
+	  else
+	    let cmd = $VIMRUNTIME . '\diff'
+	  endif
+	  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+	endfunction
+"============================================================================================================
+"						WILDMENU beállítások
+"============================================================================================================
+	"Ha van lehetõség, akkor menüben mutatja meg a TAB utáni autocomplete lehetõségeket
+		set wildmenu 
+	"A wildmode-ban kiírja a lehetõségeket is függõleges menüben
+		"A longest azt csinálja, hogy csak az elsõ ambiguitásig egészíti ki
+		set wildmode=list:longest
+"============================================================================================================
+"					FILEKEZELÉS ÉS BACKUP DIRECTORY BEÁLLÍTÁSOK
+"============================================================================================================
+	"Ide rakja a backupot, swap file-t pedig ne csináljon
+		set nobackup
+		set noswapfile
+	"Mentés nélkül is lehessen buffert váltani
+		set hidden 
+	"A mappaváltással a PWD is automatikusan változik
+		"set autochdir
+	"Karakterkódolás beállítása
+		set encoding=utf-8
+"============================================================================================================
+"						SHELL BEÁLLíTÁSOK	
+"============================================================================================================
+	"Mindig a PowerShell legyen a shell
+	"	set shell=powershell
+	"Ez mgé nem teljesen egyértelmû, mit csinál, de biztos jó lesz
+	"	set shellcmdflag=-c
+	"Help ehhez:
+		"http://juliankay.com/development/setting-up-vim-to-work-with-powershell/
+"============================================================================================================
+"						KERESÉSI BEÁLLÍTÁSOK
+"============================================================================================================
+	"Keresés ne legyen betûérzékeny
+		set ignorecase 
+	"Ha csak kisbetûvel keresek, nem érzékeny, ha van benne nagybetû is, akkor igen.
+		set smartcase 
+	"Ha zárójelet nyitok, akkor egy pillanatra átugrik (a végére is), amikor bezártam
+		set showmatch 
+	"A keresési eredményeket már a keresés közben is mutatja a háttér kiemelésével
+		set hlsearch 
+"============================================================================================================
+"						GUI beállítások
+"============================================================================================================
+	"Beállítja a morning színsémát, az általam testreszabott státuszsorral
+		:color peachpuff 
+		:highlight statusline gui=NONE guibg=Orange guifg=Black
+	"A menük eltüntetése, csak a tab marad meg
+		set guioptions=ae
+		"set go-=T 
+	"Sortörést állítja be (jobb oldalon nem megy ki margóig a szöveg)
+		set linebreak 
+	"Kicsit szellõsebb sorokat állít be.
+		set linespace=5 
+	"Beállítja, hogy mindig max képernyõn nyíljon meg a VIM
+		set lines=999 columns=999 
+	"Mindig mutasson státuszsort
+		set laststatus=2 
+	"Beállítja, a softtabok értékét 8-re
+		set shiftwidth=8
+	"Beállítja, hogy a tabok is a shiftwidth értéke szerint menjenek
+		set smarttab
+	"Automatikuisan behúzza a sorokat.
+		set autoindent 
+	"Mindidg legyen sorszámozás
+		set number 
+	"Relative line number
+		set rnu 
+	"Mutatja hol a kurzor
+		set cursorline 
+	"14 space-t szúr be shobreak után
+		let &showbreak=repeat(' ', 14) 
+"============================================================================================================
+"						MAPLEADER BEÁLLÍTÁSOK
+"============================================================================================================
+	"MAPLEADER beállítások és mappingek
+		let mapleader=","
+	"Dokumentum aljára ugrás
+		nnoremap <Leader>g G<cr>
+	"vimrc újrasourceolása
+		noremap <Leader>vim :e $MYVIMRC
+		nnoremap <Leader><Leader>vim :so $MYVIMRC
+"============================================================================================================
+"						KURZORMOZGATÁS MAPPINGEK
+"============================================================================================================
+	"ESC gomb átmappolása
+		imap ii <Esc>
+		imap <S-Space> <Esc>
+	"Kurzormozgatás átmappolása
+		noremap j gj
+		noremap k gk
+		noremap gj j
+		noremap gk k
+	"Sor elejére és végére ugrás átmappingolása
+		noremap H ^
+		noremap L $
+	"Lefelé scrollozás CTRL-s gombra, mert Windowsban a CTRL-y foglalt a lefelé scrollozásra,
+		noremap <C-s> <C-y>
+	"Changelisten visszafelé haladás (BACK) g, kombinációra
+		noremap g; g,
+	"Changelisten elõrefelé haladás (FORWARD) g; kombinációra
+		noremap g, g;
+"============================================================================================================
+"						TAB és WINDOWS KEZELÉS
+"============================================================================================================
+	"Tabkezeléshez tabváltás balra-jobbra CTRL H és L gombokkal, illetve "CTRL balra és jobbra nyilakkal
+		noremap <C-l> gt
+		noremap <C-h> gT
+		nnoremap <C-left> gT
+		nnoremap <C-right> gt
+	"Windowskezelés, normál módban kurzor billentyûk az ablakok között váltogatnak
+		nnoremap <left> <C-w>h 
+		nnoremap <right> <C-w>l
+		nnoremap <down> <C-w>j
+		nnoremap <up> <C-w>k
+		noremap <C-j> <C-w>j
+		noremap <C-k> <C-w>k
+	"Minden ablakváltáskor ment egyet.
+		au FocusLost * :wa 
+	"Mindig mentse az aktuális view-t a fájlhoz -> kikapcsoltam, mert sok hibát dobott.
+		"au BufWinLeave * mkview
+		"au BufWinEnter * silent loadview
+"============================================================================================================
+"						FUNKCIÓ BILLENTYÛ MAPPINGEK
+"============================================================================================================
+	"Bufferek között vált F2-F3-ra
+		nnoremap <F3> :bnext <CR>
+		nnoremap <F2> :bprevious<CR>
+	"Minden nyitott buffert elment 
+		"map <F5> :wa! <bar> mkview <cr>
+		map <F5> :wa! 
+	"Minden tabot elment egy "sessionsave" nevû file-ba.
+		map <F6> :mksession! sessionsave<cr>
+		map <F9> :so sessionsave <cr>
+"============================================================================================================
+"						EGYÉB MAPPINGEK
+"============================================================================================================
+	"Space-re keres elõre, C-Space-re visszafelé
+		noremap <Space> /
+		noremap <C-Space> ?
+	 ".vimrc megnyitás
+		noremap í :e $MYVIMRC
+	"Ez a helpben fontos, eredetilega  CTRL-G az az aktulis fájl infoit mutatja.
+		noremap <C-g> <C-]>
+"============================================================================================================
+"						GÉPSPECIFIKUS BEÁLLÍTÁSOK
+"============================================================================================================
+	"set viewdir=d:\Dropbox\VIMDropbox\viewdir\
