@@ -1,17 +1,6 @@
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
-Átmappoltam!
-	space - keresés EEEEZ BAROMI JÓ, NERDTREE ALATT IS MÛKÖDIK!!!!
-Új saját leaderek
-	,g - a dokumentum végére ugrik
-:1,/gépspec/diffput - a vimrc buzeráláskor mindet átmásol a Gépspec sorig bezárólag
-cc - teljes sort törli és insert módba lép
-U - a teljes soron végrehajtott utasításokat vonja vissza (Undo)
-CTRL-P - Insert módban kiegészíti az éppen beírt szót.
-Paragraph: a Vim szerint a bekezdéseket egy üres sor választja el egymástól.
-Sentence: a Vim szerint egy mondat olyan karaktersorozat, amit a „.” (pont), „?” vagy „!” fejez be, és ezt egy vagy több szóköz, Tab vagy újsor követi. 
-F2-F3 - :bnext/bprevious parancs mappelve, lépeget a bufferek között
 
 ============================================================================================================
 						MAPLEADEREK, LEADER
@@ -20,10 +9,10 @@ F2-F3 - :bnext/bprevious parancs mappelve, lépeget a bufferek között
 		- a dokumentum aljára ugrik (G)
 	,n
 		- NERDTree indítása
-	,vim 
-		:e $MYVIMRC
-	,,vim 
-		:so $MYVIMRC
+	,h ,j ,k ,l
+		- ablakok között vált
+	,cd
+		- az aktuális mappát pwd-re állítja
 ============================================================================================================
 						MAPPINGOK
 ============================================================================================================
@@ -39,6 +28,10 @@ F2-F3 - :bnext/bprevious parancs mappelve, lépeget a bufferek között
 		- elõzõ/következõ buffer
 	<F5>
 		- wa!
+	<F6>
+		- mksession! c:\vimroot mappába
+	<F9> 
+		- betölti a vimroot mappába mentett session-t.
 	kurzorbillentyûk
 		- ablakok között váltás
 	CTRL-kurzorbillentyûk (bal-jobb)
