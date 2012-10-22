@@ -1,11 +1,10 @@
 "============================================================================================================
-"						aVIMRC beállítások 0.1 
+"						aVIMRC beállítások 1.2
 "============================================================================================================
 "						Plugin beállítások
 "============================================================================================================
 "Pathogen plugin 
 	set nocp
-"	source $vimruntime\autoload\pathogen.vim
 	call pathogen#infect('c:\vimroot\bundle')
 	syntax on
 	filetype plugin indent on
@@ -52,7 +51,7 @@
 		"A longest azt csinálja, hogy csak az elsõ ambiguitásig egészíti ki
 		set wildmode=list:longest
 "============================================================================================================
-"					FILEKEZELÉS ÉS BACKUP DIRECTORY BEÁLLÍTÁSOK
+"				FILE, BACKUP, MAPPA BEÁLLÍTÁSOK	
 "============================================================================================================
 	"Ide rakja a backupot, swap file-t pedig ne csináljon
 		set nobackup
@@ -60,18 +59,15 @@
 	"Mentés nélkül is lehessen buffert váltani
 		set hidden 
 	"A mappaváltással a PWD is automatikusan változik
-		"set autochdir
+		set autochdir
+		noremap <leader>cdoff :set noautochdir<cr>
 	"Karakterkódolás beállítása
 		set encoding=utf-8
-"============================================================================================================
-"						SHELL BEÁLLíTÁSOK	
-"============================================================================================================
-	"Mindig a PowerShell legyen a shell
-	"	set shell=powershell
-	"Ez mgé nem teljesen egyértelmû, mit csinál, de biztos jó lesz
-	"	set shellcmdflag=-c
-	"Help ehhez:
-		"http://juliankay.com/development/setting-up-vim-to-work-with-powershell/
+	"Az aktuális fájl mappátját állítja be PWD-nek
+	  	nnoremap <Leader>cd :cd %:h<bar>pwd<cr>
+	" Reload file if it's modified outside
+		set autoread
+		set autowrite
 "============================================================================================================
 "						KERESÉSI BEÁLLÍTÁSOK
 "============================================================================================================
@@ -83,12 +79,30 @@
 		set showmatch 
 	"A keresési eredményeket már a keresés közben is mutatja a háttér kiemelésével
 		set hlsearch 
+	"Kiszedi a keresés kiemelését
+		noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+	"Space-re keres elõre, C-Space-re visszafelé
+		noremap <Space> /
+		noremap <C-Space> ?
+	" Keep search matches in the middle of the window and pulse the line when moving to them.
+		nnoremap n nzzzv
+		nnoremap N Nzzzv
+	" Ugyanúgy automatikusan középre zoomol elõzõ-következõ change-re ugrásnál is
+	" Valamint felcseréli az elõre-hátra haladást, az elõzõ változtatás lesz a g,
+		nnoremap g; g,zz
+		nnoremap g, g;zz
 "============================================================================================================
 "						GUI beállítások
 "============================================================================================================
 	"Beállítja a morning színsémát, az általam testreszabott státuszsorral
 		:color peachpuff 
 		:highlight statusline gui=NONE guibg=Orange guifg=Black
+	"Státusz line variációk
+		"set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+		"set statusline=%<%F%h%m%r%h%w%y\ [FORMAT=%{&ff}]\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+		"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%y.%m.%d\ -\ %H:%M:%S\")}
+		"saját barkácsolás
+		set statusline=[%-n]\ %<%t%m%r%w%y\ %=\ Lin[%l\/%L]\ Col[%c%V]\ File[%F]\ Date[%{strftime(\"%y.%m.%d.\|%H:%M\",getftime(expand(\"%:p\")))}]\ %P
 	"A menük eltüntetése, csak a tab marad meg
 		set guioptions=ae
 		"set go-=T 
@@ -114,6 +128,14 @@
 		set cursorline 
 	"14 space-t szúr be shobreak után
 		let &showbreak=repeat(' ', 14) 
+	" New split window on the right
+		set splitright
+	" New split window on the bottom
+		set splitbelow
+	" Scrollozásnál ennyi sort mindig mutat képernyõ tetejébõl-aljából-oldalából
+		set scrolloff=5
+		set sidescroll=1
+		set sidescrolloff=10
 "============================================================================================================
 "						MAPLEADER BEÁLLÍTÁSOK
 "============================================================================================================
@@ -123,17 +145,19 @@
 		nnoremap <Leader>g G<cr>
 	"Nerdtree indítása
 		nnoremap <Leader>n :NERDTree<cr>
-	"vimrc újrasourceolása
-	"Egyelõre kikapcsoltam, mert a $MYVIMRC üres, ha a VIM -u {filenév}
-	"paranccsal indítok
-		"noremap <Leader>vim :e $MYVIMRC
-		"nnoremap <Leader><Leader>vim :so $MYVIMRC
+	"Ablakkezelés mapleaderekkel
+		nnoremap <Leader>h <C-w>h
+		nnoremap <Leader>l <C-w>l
+		nnoremap <Leader>j <C-w>j
+		nnoremap <Leader>k <C-w>k
 "============================================================================================================
-"						KURZORMOZGATÁS MAPPINGEK
+"					KURZORMOZGATÁS, SZERKESZTLÉS MAPPINGEK
 "============================================================================================================
 	"ESC gomb átmappolása
 		imap ii <Esc>
 		imap <S-Space> <Esc>
+	"ENTER-re a képernyõ közepére igazítja az aktuális sort
+		nnoremap <cr> zvzz
 	"Kurzormozgatás átmappolása
 		noremap j gj
 		noremap k gk
@@ -144,10 +168,16 @@
 		noremap L $
 	"Lefelé scrollozás CTRL-s gombra, mert Windowsban a CTRL-y foglalt a lefelé scrollozásra,
 		noremap <C-s> <C-y>
-	"Changelisten visszafelé haladás (BACK) g, kombinációra
-		noremap g; g,
-	"Changelisten elõrefelé haladás (FORWARD) g; kombinációra
-		noremap g, g;
+	"Insert módban autocomplete egyszerûsítés
+	"Teljes sor kiegészítés
+		inoremap <c-l> <c-x><c-l>
+	"Fájlkiegészítés
+		inoremap <c-f> <c-x><c-f>
+	"Insert módban is lehessen sorok között mozogni
+		inoremap <C-j> <up>
+		inoremap <C-k> <down>
+	"Insert módban így egészíti ki
+		set completeopt=longest,menuone,preview
 "============================================================================================================
 "						TAB és WINDOWS KEZELÉS
 "============================================================================================================
@@ -163,6 +193,11 @@
 		nnoremap <up> <C-w>k
 		noremap <C-j> <C-w>j
 		noremap <C-k> <C-w>k
+	" Window resizing
+		nnoremap <S-C-left> 5<c-w>>
+		nnoremap <S-C-right> 5<c-w><
+		nnoremap <S-C-up> 5<c-w>+
+		nnoremap <S-C-down> 5<c-w>-
 	"Minden ablakváltáskor ment egyet.
 		au FocusLost * :wa 
 	"Mindig mentse az aktuális view-t a fájlhoz -> kikapcsoltam, mert sok hibát dobott.
@@ -178,18 +213,22 @@
 		"map <F5> :wa! <bar> mkview <cr>
 		map <F5> :wa!<cr>
 	"Minden tabot elment egy "sessionsave" nevû file-ba.
-		map <F6> :mksession! sessionsave<cr>
-		map <F9> :so sessionsave <cr>
+		map <F6> :mksession! c:\vimroot\sessionsave<cr>
+		map <F9> :so c:\vimroot\sessionsave <cr>
 "============================================================================================================
-"						EGYÉB MAPPINGEK
+"						EGYÉB BEÁLLÍTÁSOK
 "============================================================================================================
-	"Space-re keres elõre, C-Space-re visszafelé
-		noremap <Space> /
-		noremap <C-Space> ?
-	 ".vimrc megnyitás
-		noremap í :e $MYVIMRC
 	"Ez a helpben fontos, eredetilega  CTRL-G az az aktulis fájl infoit mutatja.
 		noremap <C-g> <C-]>
+"============================================================================================================
+"						SHELL BEÁLLíTÁSOK	
+"============================================================================================================
+	"Mindig a PowerShell legyen a shell
+	"	set shell=powershell
+	"Ez mgé nem teljesen egyértelmû, mit csinál, de biztos jó lesz
+	"	set shellcmdflag=-c
+	"Help ehhez:
+		"http://juliankay.com/development/setting-up-vim-to-work-with-powershell/
 "============================================================================================================
 "						GÉPSPECIFIKUS BEÁLLÍTÁSOK
 "============================================================================================================
