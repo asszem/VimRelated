@@ -1,0 +1,516 @@
+============================================================================================================
+						Új parancsok memorizáláshoz
+============================================================================================================
+Átmappoltam!
+	space - keresés EEEEZ BAROMI JÓ, NERDTREE ALATT IS MÛKÖDIK!!!!
+Új saját leaderek
+	,g - a dokumentum végére ugrik
+:1,/gépspec/diffput - a vimrc buzeráláskor mindet átmásol a Gépspec sorig bezárólag
+cc - teljes sort törli és insert módba lép
+U - a teljes soron végrehajtott utasításokat vonja vissza (Undo)
+CTRL-P - Insert módban kiegészíti az éppen beírt szót.
+Paragraph: a Vim szerint a bekezdéseket egy üres sor választja el egymástól.
+Sentence: a Vim szerint egy mondat olyan karaktersorozat, amit a „.” (pont), „?” vagy „!” fejez be, és ezt egy vagy több szóköz, Tab vagy újsor követi. 
+F2-F3 - :bnext/bprevious parancs mappelve, lépeget a bufferek között
+
+============================================================================================================
+						MAPLEADEREK, LEADER
+============================================================================================================
+	,g
+		- a dokumentum aljára ugrik (G)
+	,n
+		- NERDTree indítása
+	,vim 
+		:e $MYVIMRC
+	,,vim 
+		:so $MYVIMRC
+============================================================================================================
+						MAPPINGOK
+============================================================================================================
+	space 
+		- keresés elõre
+	C-space
+		- keresés hátra
+	H 
+		- sor eleje (^ helyett)
+	L 
+		- sor vége ($ helyett)
+	<F3>-<F4>
+		- elõzõ/következõ buffer
+	<F5>
+		- wa!
+	kurzorbillentyûk
+		- ablakok között váltás
+	CTRL-kurzorbillentyûk (bal-jobb)
+		- tabok között váltás
+============================================================================================================
+						MOZGÁS, KURZORKEZELÉS
+============================================================================================================
+	j / k 
+		- Soron belül mozog le/fel
+	gj /gk 
+		- Sorok között mozog le/fel
+	^ 
+		- Az adott sor elsõ nem üres karakterére ugrik (ALTgr-3, utána sajnos még egy extra gombot nyomni kell különben nem érzi)
+		- Átmappoltam H-ra.
+	$ 
+		- Az adott sor végére ugrik
+		- Átmappoltam L-re.
+	:+-{szám}<ENTER> 
+		- Plusz (vagy mínusz) sornyit ugrik
+	:{szám}<ENTER>
+		- A megadott számú sorhoz ugrik
+	<szám}G 
+		- a megadott számú sorhoz ugrik
+	zz vagy z. 
+		- a kurzor alatti sort az ablak közepére állítja
+	zt 
+		- a kurzor alatti sort az ablak tetejére állítja
+	zb 
+		- a kurzor alatti sort az ablak aljára állítja
+============================================================================================================
+					CHANGES, CHANGELIST
+============================================================================================================
+	:CHANGES
+		- Mutatja a változtatásokat CHANGELIST
+	g, 
+		- Az elõzõ változásra ugrik 
+	{szám}g, 
+		- A beírt értéknyi elõzõ változásra ugrik
+	g;
+		- A következõ változásra ugrik
+	{szám}g;
+		- A beírt értéknyi következõ változásra ugrik
+	gi
+		- a legutolsó szerkesztés helyéhez viszi a kurzort és belép inzert módba. 
+============================================================================================================
+					JUMPS, JUMPLIST
+============================================================================================================
+	:JUMPS
+		- Megmutatja a jumplistet JUMPLIST
+	CTRL-o 
+		- Elõzõ pozícióra ugrik 
+	CTRL-i 
+		- Következõ pozícióra ugrik 
+	{szám}CTRL-o/i 
+		- Megadott számnyit ugrik a jumplisten  
+	{szám}f/F{karakter} 
+		- A {számnyi} elõfordulására a beírt karakternek a sorban jobbra(f)/balra(F) - mnemo: "find"
+	{szám}t/T{karakter}
+		- A beírt karakternek a {számnyi} elõfordulása elé(t)/mögé(T) - mnemo: "to"
+	; 
+		- megismétli az f/f vagy t/T keresést JOBBRA (ALTgr-?)
+	, 
+		- megismétli az f/f vagy t/t keresést BALRA (simán ,)
+============================================================================================================
+					SZÖVEGSZERKESZTÉS NORMÁL MÓDBAN 
+============================================================================================================
+	ALT -> és ALT -< 
+		- Behúzza vagy visszaviszi az aktuális szöveget a TAB-ban beállított értéknyit.
+	daw 
+		- "delete around word" 
+	caw 
+		- "change around word"
+	x és X 
+		- a kurzor alatti vagy a kurzor ELÕTTI karaktert törli (backspace tulajdonképpen)
+	D 
+		- a kurzor alattól jobbra mindent töröl 
+	dd 
+		- a teljes sort törli
+	C 
+		- a kurzor alattól jobbra mindent töröl és Inzert módba lép
+	cc 
+		- a teljes sort törli és insert módba lép
+	gqip / gwip 
+		- adott paragrafust átalakítja sorokká a sortöréseknél (hard wrap), 
+		- gwip a kurzort eredeti helyén tartja, gqip pedig a legutolsó sor alá viszi
+	~ 
+		- toggle case (ALTgr-1)
+		12~ 
+			- 12 karakter betûméretét változtatja meg  (ha teljes sort akarok, 99~ elég általában )
+	U 
+		- a teljes soron visszavonja a változtatásokat
+============================================================================================================
+					SZÖVEGSZERKESZTÉS INSERT MÓDBAN, INZERT MóD
+============================================================================================================
+	CTRL-W 
+		- balra lévõ szót törli
+	CTRL-T/D 
+		- tabokat húzza be/ki
+	CTRL-N/P 
+		- korábbi mintázatok alapján megpróbálja autocompletelni a kurzor alatti szót 
+		- a listában a ctrl-n/p nyomogatásával lehet haladni, nem kell entert nyomni, automatikusan beírja, amit akarunk, lehet tovább gépelni. 
+		- Ha mégsem szeretnénk semmit, akkor CTRL-P-t válasszunk legfelül.
+	CTRL-xl 
+		- teljes sort próbál meg mintázat alapján beilleszteni 
+	CTRL-xf 
+		- a mappában lévõ fájlokra egészíti ki a beírt szöveget, alul látszik, mikkel lehet le-föl haladni
+============================================================================================================
+					COPY-PATE, MÁSOLÁS, YANK, PUT
+============================================================================================================
+	:reg 
+		- a register tartalmát mutatja, innen lehet pastelni. 
+	"{regiszterazonosító}p 
+		- a regiszterszámba írt értéknek megfelelõ sort bepásztézza
+	"{regiszterazonosító}y 
+		- berakja a megnevezett regiszterbe a kijelölt tartalmat (Visual módban)
+	"+c 
+		- a Windows vágólapra másolja
+	"+p 
+		- a Windows vágólapról pasztézza
+	:{range}y 
+		- a range-ben megadott tartományt másolja
+			:10y - a 10. sort másolja
+			:+10y - tíz sorral lejjebb másolja
+			:+2,+4y - ebben a tartományban másol
+	:{sorszámhivatkozás}pu {regiszterhivatkozás} 
+		- az adott sorszámhivatkozás alá bemásolja a regiszter tartalmát (vagy a megadott regisztert)
+	:{sorszámhivatkozás}pu! {regiszterhivatkozás} 
+		- az adott sorszámhivatkozás fölé bemásolja a regiszter tartalmát (vagy a megadott regisztert)
+			:+2pu - az aktuális sor alá két sorral
+			:22pu! - a 22. sor fölé
+============================================================================================================
+					KERESÉS, SEARCH, ZOOM
+============================================================================================================
+	/{kifejezés} 
+		- a dokumentumban elõre, lefelé keres
+		- space gombra átmappolva
+	?{kifejezés} 
+		- a dokumentumban hátra, felfelé keres
+		- CTRL-Space gombra átmappolva
+	:noh 
+		- no highlight, a legutóbbi keresés highlightolását kapcsolja ki.
+	q/ 
+		- legutóbbi keresési lista
+	// 
+		- legutóbbi keresést megismétli
+	* 
+		- a kurzor alatt lévõ szóra keres
+	g* 
+		- a kurzor alatt lévõ szóra keres (nem teljes szót is kijelöl a találatok között)
+	:{range}z{count} 
+		- ideiglenesen megmutatja az adott sort ("zoom"), a {count} pedig, hogy hány sort mutasson meg.
+			Minta: :345z10 - a 345. sortól 10 sort megmutat
+============================================================================================================
+					HELYETTESÍTÉS - SUBSTITUTE
+============================================================================================================
+	:{range}s,mit,mire,flagek
+		- Cserélésnél az s után megadott karakter lesz a keresést elválasztó karakter, azaz ilyenek is lehetnek:
+			:s,mit,mire,flagek
+			:s#mit#mire#flagek
+	Flagek
+		  - nincs flag, akkor csak a következõ elõfordulást fogja cserélni
+		g - az adott sorban végig
+		c - rákérdez minden cserénél
+	\<teljes szó\> 
+		- csak a teljes szót helyettesíti
+			példa: \<alma\> az "almafa" szóban nem helyettesíti az alma kifejezést
+	\(vagyez\|vagyemez\) - a két szó bármelyik elõfordulása
+============================================================================================================
+					KIJELÖLÉS, VISUAL MÓD, VIZUAL
+============================================================================================================
+	gv 
+		- az elõzõ visual módba kijelölt sorokat újra kijelöli
+	o 
+		- Visual módban az aktuális kijelölés másik végére viszi a kurzort. Baromi hasznos!!!
+	viW 
+		- visual inside Word (csak a szót jelöli ki, a spaceket elõtte-utána nem)
+	vaW 
+		- visual around word (a szó utáni space-eket is kijelöli a következõ szóig)
+	v/ 
+		- visual a keresett karakterig a dokumentumban elõre (visszafelé pedig ?)
+	vf{karakter} 
+		- a sorban lévõ karakterig kijelöl (uez meg f, t és T-vel is)
+	Visual range kijelölés: kezdõsorGVvégsorG
+		- 23GV42G - a 23 és a 42. sor között kijelöli
+		- 'aV'b - az a és a b mark közötti területet jelöli ki
+	Paragraph
+		- A Vim szerint a bekezdéseket egy üres sor választja el egymástól.
+	Sentence 
+		- A Vim szerint egy mondat olyan karaktersorozat, amit a „.” (pont), „?” vagy „!” fejez be, és ezt egy vagy több szóköz, Tab vagy újsor követi. 
+============================================================================================================
+					BLOCK VISUAL MÓD	
+============================================================================================================
+	CTRL-Q 
+		- block mód visual kijelölés indítása
+	 I
+		- a kijelölt terület sorai elé szúr be
+	 A
+		- a kijelölt terület sorai után szúr be 
+============================================================================================================
+					DIFF HASZNÁLAT 
+============================================================================================================
+	:diffsplit {file}
+		- horizontálisan hasonlítja össze a fájlokat
+	:vert diffsplit {file} 
+		- vertikálisan megnyitott ablakban hasonlítja össze a fájlokat  
+	:diffoff! 
+		- az összes diff módban lévõ ablakot bezárja
+	:{range}diffput 
+		- az aktuális ablak változásait átmásolja a másik diff ablakba
+	:{range}diffget 
+		- a másik ablak változásait visszamásolja az aktuális ablakba
+	:diffu 
+		- diff UPDATE, azaz frissíti a diffeket. na ezt is tökre kerestem
+	:diffthis
+		- az aktuális ablakot hozzáveszi a diffhez
+	]c 
+		- a következõ váltzáshoz ugrik [ALTgr-G]  
+	[c 
+		- az elõzõ változáshoz ugrik [ALTgr-F] 
+	Színmagyarázat
+		- Fehér háttér: csak ebben szereplõ teljes sor 
+		- Kék háttér, pirossal szöveg: csak ebben szereplõ sorrészlet (piros)
+		- Szürkés háttér --- vonalakkal: csak a másikban szereplõ sor
+============================================================================================================
+					FOLDING, FOLD, FOLDS	
+============================================================================================================
+	zf#j 
+		- creates a fold from the cursor down # lines.
+	zf/
+		- string creates a fold from the cursor to string .
+	zj 
+		- moves the cursor to the next fold.
+	zk 
+		- moves the cursor to the previous fold.
+	zo 
+		- opens a fold at the cursor.
+	zO 
+		- opens all folds at the cursor.
+	zm 
+		- increases the foldlevel by one.
+	zM 
+		- closes all open folds.
+	zr 
+		- decreases the foldlevel by one.
+	zR 
+		- decreases the foldlevel to zero -- all folds will be open.
+	zd 
+		- deletes the fold at the cursor.
+	zE 
+		- deletes all folds.
+	[z 
+		- move to start of open fold.
+	]z 
+		- move to end of open fold.
+============================================================================================================
+					ABLAKKEZELÉS, WINDOWS, WINDOW
+============================================================================================================
+	CTRL-W 
+		- ablakkezelõ parnacsok
+	CTRL-W_hjkl 
+		- Megfelelõ irányban lévõ ablakba mozdítja a kurzort
+	CTRL-W_w 
+		- a nyitott ablakok között váltogat
+	CTRL-W_x 
+		- felcseréli egy másik ablakkal az éppen nézet ablakot (azaz a fókusz ugyanott marad, csak más ablak kerül ugyanarra a helyre)
+	CTRL-W_c 
+		- close
+	CTRL-W_q 
+		- quit
+	CTRL-W_T 
+		- új tabon nyitja meg az aktuális ablakokt
+	CTRL-W_r 
+		- eggyel lejebb mozgatja az aktuális ablakot
+	CTRL-W_o 
+		- becsukja az összes többi ablakot :on parancs is
+	CTRL-j/k
+		- windowsok között vált (saját VIMRC remap)
+	:sp(lit) {filenév} 
+		- az aktuális ablakból még egyet csinál, vízszíntesen (ha megadok filenevet, akkor azt nyitja oda meg)
+	:vp {filenév} 
+		- vertikális split, azaz függõlegesen csinál két új anzert mód kilépés alternatívablakot.   (ha megadok filenevet, akkor azt nyitja oda meg)
+============================================================================================================
+					ABLAK MÉRETEZÉS, WINDOW RESIZE
+============================================================================================================
+	:res 
+		- paraméter nélkül: maxra állítja az aktuális ablakot (ez jó, ha a CTRL-W o parancs nem menne)
+	:res {szám} 
+		- az aktuális ablakot a számban megadott sor magasságúra állítja
+	:res + {szám} 
+		- az aktuális ablakot megnöveli ennyivel (mínusz jelre meg csökkenti)
+	z {szám} 
+		- az aktuális ablak magasságát a z után megadott számmá alakítja
+	{szám> CTRL-W | 
+		- a megadott szám szélességûre állítja az ablakot
+	CTRL-W_ 
+		- Aktuális ablak maximum vízszintes méret
+	CTRL-W1_ 
+		- Aktuális ablak minimum vízszintes méret
+	:set wrapmargin:={szám} - beállítja, hogy jobb oldalt hány karakter legyen a margó a szélétõl :set wm is jó.
+	:set textwidth={szám} - beálítja, hogy hány karakter után törjön a sor, default=0, ekkor az 
+============================================================================================================
+					TABKEZELÉS, TABS, TABOK
+============================================================================================================
+	:tabnew 
+		- megnyit egy új, üres tabot egy üres ablakkal
+	:tabe {filenév} 
+		- új tabban nyitja meg a megadott file-t.
+	:tabo 
+		- minden tabot bezár
+	:tabr 
+		- balra legszélsõ tab (tabfiRst)
+	:tabl 
+		- jobbra legszélsõ tab (tabLast)
+	CTRL-h/l 
+		- tabok között vált (saját VIMRC remap)
+============================================================================================================
+					BUFFERKEZELÉS, BUFFERS, BUFFER
+============================================================================================================
+	:ls 
+		- kilistázza az adott buffereket (ha nem ENTER-t nyomok utána, hanem b, akkor lehet továbbiakat írni
+		% - aktuális ablak
+		# - alternatív buffer, váltogatás: :e# és :b#
+		a - aktív buffer (betöltött és látható)
+		h - hidden (betöltött, de nem látható)
+		+ - módosítás van rajta
+		%a - ez mutatja, hogy mi az aktív buffer éppen
+		:ls! - az unlisted buffferekt is kimutatja
+	:b (:bu vagy :buffer) 
+		- a megadott buferre ugrik (lehet buffer száma, egy vagy több, lehet szöveg, TAB-al kiegészít)
+	:b# 
+		- az alternatív bufferek között váltogat (EZT MÉG KICSIT ÁTNÉZNI)
+	:bd 
+		- törli a megadott buffereket
+		3,7 - range megadása, a 3-6 közötti buffereket törli
+		%bd - törli az összes buffert, a % itt a teljes range-t jelöli
+		:bd! - törli az olyan buffert is, amit amúgy nem engedne
+		:ball! - szépen letöröl mindent.
+	:hide 
+		-elrejti az adott buffert
+	:tab sball 
+		- az összes buffert külön tabon nyitja meg
+	:sbuffer{szám filenév} 
+		- az aktuális bufferhez lép 
+	:set switchbuf=usetab,newtab - ha a buffer már nyitva van egy tabon, akkor oda ugrik, ha nincs, új tabot hoz létre  (csak :sbuffer-el megy)
+	A státuszsorban alul:
+		File név
+		[+] - azt jelenti, hogy módosítva volt
+		39,1 - sor, oszlopszám
+		54% - a dokumentumban hol tartok.
+============================================================================================================
+					FÁJLKEZELÉS FILEKEZELÉS
+============================================================================================================
+	:browse e 
+		- megnyitja a fájl böngészõt
+	gf 
+		- goto file - megnyitja a kurzor alatt lévõ szót, mint file, ha van. Visuallal lehet többet kijelölni 
+	:w {filenév} 
+		- új fájlt nyit a megadott névvel. Ha volt vizuális kijelölés, akkor annak tartalmát beleírja az új fájlba.
+	:e *filenév <TAB> 
+		- bárhol szerepel a fájlnévben keres
+	:e. 
+		- az aktuális mappát nyitja meg a VIM belsõ nézõkéjével
+	:E 
+		- ez is megnyitja a böngit.
+	'0 
+		- a legutoljára megnyitott fájlt nyitja meg (VIM újraindításkor jól jön)
+	gf 
+		- goto file - megnyitja a kurzor alatt lévõ szót, mint file, ha van. Visuallal lehet több szót kijelölni 
+	ctrl-xf 
+		- a mappában lévõ fájlokra egészíti ki a beírt szöveget, alul látszik, mikkel lehet le-föl haladni
+============================================================================================================
+					REGISTERS
+============================================================================================================
+	:di 
+		- kilistázza a regisztereket (ugyanaz, mint a :reg)
+	:reg 
+		- kilistázza a regisztereket
+	"{regiszternév} 
+		- a regiszter tartalmával végez mûveletet
+		- "ay - az "a" regiszterbe másoli a tartalmat
+		- "ap - az "a" regiszter tartalmát másolja be
+	Regisztereket elmagyarázó oldal
+		http://usevim.com/2012/04/13/registers/
+============================================================================================================
+					MARKS	
+============================================================================================================
+	m{kisbetû} 
+		- megjelöli a helyet, csak a fájlban
+	m{nagybetû} 
+		- megjelöli a helyet, más fájlból is elérhetõ
+	'{betû} 
+		- odaugrik a mark-ra (shift-1 a ' karakter)
+	'. 
+		- legutolsó változtatás helyére ugrik
+	'" 
+		- fájlbezárás elõtti utolsó pozícióra ugrik
+	:marks 
+		- megmutatja a markokat.
+============================================================================================================
+					MAKRO, MAKRÓK	
+============================================================================================================
+	q{regiszternév} 
+		- elindítja a makró rögzítést
+	q 
+		- leállítja a makró rögzítést
+	@{regiszternév} 
+		- elindítja a megadott makrót
+	@@ 
+		- a legutoljára indított makrót indítja újra
+	"{regiszternév}p
+		- kimásolja a makrót (hogy lássuk, mi van benne)
+============================================================================================================
+					RANGEK
+============================================================================================================
+	. 
+		- az aktuális sor 
+	$ 
+		- utolsó sor
+	% 
+		- a teljes dokumentum (ugyanaz, mint 1,$)
+	'{betû} 
+		- a {betû} marks pozíciója
+	/{keresési minta}/ 
+		- addig a sorig elõrefelé, amíg nincs egyezés
+	?{keresési minta}/ 
+		- addig a sorig visszafelé, amíg nincs egyezés
+	\? és \/ 
+		- az elõzõ keresés eredményéig ? visszafelé / elõrefelé
+	+{szám} 
+		- ennyi sorral a keresési pattern után. -{szám} is ugyanez, csak elé.
+============================================================================================================
+					EGYÉB DOLGOK	
+============================================================================================================
+	PARANCS MÓD EX MODE
+		: módban több parancs egymás után: | elválasztással (második parancstól nem kell : jelet rakni)
+	A sortörés helyének vizuális jelzése
+		:set colorcolumn=80 
+	Az aktuális ablak útvonalát állítja be PWD-nek:
+		:cd %:h
+	Hosszú listák végének mutatása:
+		:history -5, - csak az utolsó ötöt mutatja (a vesszõ kell a végére) 
+	SESSION MANAGEMENT
+		:mks vagy :mksession {sessionnév} - elmenti a session-t (nyitott fájlokat)
+		:so {sessionnév} - session open, megnyitja az elmentett sessiont.
+		:mkview {viewnév} - elmenti a foldokat meg a nézetet (ha nem adok meg file-t, akkor bajt jelez)
+		:lo {viewvév} - betölti a viewet.
+		:set viewdir={útvonal} - beállítja, hol legyen az mkview fájloknak a helye (azért jó, mert nem kell rendszermappába)
+	VIM beállítások
+		:set valami? - a kérdõjel után kiírja az aktuális setting értékét.
+	SOFTTAB, HARDTAB
+		:set shiftwidth=3 - erre a CTRL-T és CTRL-D is ennyi tabot rak be insert módban
+		:set smarttab - a shiftwidthnek megfelelõ tabokat rak be a sor elejére
+============================================================================================================
+						HASZNOS LINKEK
+============================================================================================================
+	Cheatsheetek
+		http://www.tuxfiles.org/linuxhelp/vimcheat.html
+		http://tnerual.eriogerg.free.fr/vimqrc.html 
+		http://www.brezeale.com/technical_notes/vim_notes.shtml - fõleg a substitute része nagyon erõs, jó példákkal
+		http://cheat.errtheblog.com/s/vim/ - viszonylag rövidebb cheatsheet
+		http://www.cmrr.umn.edu/~strupp/vim-3.0.refcard.html - Az egyik legteljesebb lista
+	Leírások
+		http://mek.oszk.hu/09600/09648/09648.pdf - magyar leírás, jó
+		http://vimregex.com/ - regexek kifejezése
+		http://www.cs.oberlin.edu/~kuperman/help/vim/silly.html - hasznos tippek, külön szekciókra bontva (itt vannak a silly cuccok is)
+		http://www.linux.com/learn/tutorials/442438-vim-tips-folding-fun - folding tippek
+		http://usevim.com/
+		http://nvie.com/posts/how-i-boosted-my-vim/
+	Substitution tippek
+		http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/
+	Folding tippek
+		http://www.linux.com/learn/tutorials/442438-vim-tips-folding-fun
+	.vimrc tippek
+		http://www.pixelbeat.org/settings/.vimrc
+		http://items.sjbach.com/319/configuring-vim-right
