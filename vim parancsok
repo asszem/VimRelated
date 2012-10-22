@@ -1,7 +1,9 @@
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
-
+Insert módban átmappingoltam CTRL-L sor kiegészítésre és CTRL-f filenév kiegészítésre
+CTRL-SHIFT-nyilak
+	- Az ablakok méretét növeli/csökkenti a megfelelõ módon
 ============================================================================================================
 						MAPLEADEREK, LEADER
 ============================================================================================================
@@ -13,8 +15,12 @@
 		- ablakok között vált
 	,cd
 		- az aktuális mappát pwd-re állítja
+	,cdoff
+		- kikapcsolja a :set autochdir opciót
+	,space
+		- az utolsó keresés eredményének highlightolását törli
 ============================================================================================================
-						MAPPINGOK
+						NORMAL MÓD MAPPINGOK
 ============================================================================================================
 	space 
 		- keresés elõre
@@ -36,6 +42,20 @@
 		- ablakok között váltás
 	CTRL-kurzorbillentyûk (bal-jobb)
 		- tabok között váltás
+	CTRL-SHIFT-nyilak
+		- Az ablakok méretét növeli/csökkenti a megfelelõ módon
+	ENTER
+		- a képernyõ közepére igazítja a kurzort
+============================================================================================================
+						INSERT MÓD MAPPINGOK
+============================================================================================================
+	L 
+		- sort automatikusan megpróbálja kiegészíteni
+	F
+		- fájlnév kiegészítés
+	CTRL-J
+	CTRL-K
+		- mozgás le-fel sorokban 
 ============================================================================================================
 						MOZGÁS, KURZORKEZELÉS
 ============================================================================================================
