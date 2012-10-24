@@ -1,3 +1,4 @@
+Vim Parancsok - v.1.0  [2012.10.24. szerda | 13:46:44]
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
@@ -6,6 +7,8 @@ CTRL-SHIFT-nyilak
 	- Az ablakok méretét növeli/csökkenti a megfelelõ módon
 CTRL-P - a NerdTree mellett még egy fájlmegnyitó cucc.
 U - Gundo plugin toggle
+,ts - rövid time stampet szúr be [10.24. 13:44:52]
+,tl - timestamp long: [2012.10.24. szerda | 13:45:19]
 ============================================================================================================
 						Ctrl-P Plugin parancsok
 ============================================================================================================
@@ -34,10 +37,14 @@ U - Gundo plugin toggle
 		- különbözõ módokban hívja meg 
 	:CtrlPBookmarkDirAdd
 		- Könyvjelzõket ment az aktuális direktoryhoz
+	,pf
+		- Files nézetben nyitja meg a CTRL-p-t.
 	,pb
 		- Buffer nézetben nyitja meg a CTRL-p-t.
-	,pr
-		- mostRecentused nézetben nyitja meg CTRL-p-t
+	,pm
+		- MostRecentUsed nézetben nyitja meg CTRL-p-t
+	,pbd
+		- bookmarked Dir nézetben nyitja meg CTRL-p-t
 	?
 		- elindítja a súgót
 ============================================================================================================
@@ -57,6 +64,10 @@ U - Gundo plugin toggle
 		- kikapcsolja a :set autochdir opciót
 	,space
 		- az utolsó keresés eredményének highlightolását törli
+	,ts
+		- short timestampet szúr be [10.24. 13:46:26]
+	,tl
+		- long timestampet szúr be [2012.10.24. szerda | 13:46:12]
 ============================================================================================================
 						NORMAL MÓD MAPPINGOK
 ============================================================================================================

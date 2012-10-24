@@ -1,5 +1,8 @@
+"aVIMRC beállítások 1.7 [2012.10.24. szerda | 13:47:22]
 "============================================================================================================
-"						aVIMRC beállítások 1.5
+"						MAPLEADER BEÁLLÍTÁSOK
+"============================================================================================================
+	let mapleader=","
 "============================================================================================================
 "						Plugin beállítások
 "============================================================================================================
@@ -151,20 +154,6 @@
 		set sidescroll=1
 		set sidescrolloff=10
 "============================================================================================================
-"						MAPLEADER BEÁLLÍTÁSOK
-"============================================================================================================
-	"MAPLEADER beállítások és mappingek
-		let mapleader=","
-	"Dokumentum aljára ugrás
-		nnoremap <Leader>g G<cr>
-	"marks-ra ugrás
-		nnoremap <Leader>m '
-	"Ablakkezelés mapleaderekkel
-		nnoremap <Leader>h <C-w>h
-		nnoremap <Leader>l <C-w>l
-		nnoremap <Leader>j <C-w>j
-		nnoremap <Leader>k <C-w>k
-"============================================================================================================
 "					KURZORMOZGATÁS, SZERKESZTLÉS MAPPINGEK
 "============================================================================================================
 	"ESC gomb átmappolása
@@ -194,6 +183,10 @@
 		set completeopt=longest,menuone,preview
 	"Gundo toggle átmappolása
 		noremap U :GundoToggle<cr>
+	"Dokumentum aljára ugrás
+		nnoremap <Leader>g G<cr>
+	"marks-ra ugrás
+		nnoremap <Leader>m '
 "============================================================================================================
 "						TAB és WINDOWS KEZELÉS
 "============================================================================================================
@@ -209,6 +202,11 @@
 		nnoremap <up> <C-w>k
 		noremap <C-j> <C-w>j
 		noremap <C-k> <C-w>k
+	"Ablakkezelés mapleaderekkel
+		nnoremap <Leader>h <C-w>h
+		nnoremap <Leader>l <C-w>l
+		nnoremap <Leader>j <C-w>j
+		nnoremap <Leader>k <C-w>k
 	" Window resizing
 		nnoremap <S-C-left> 5<c-w>>
 		nnoremap <S-C-right> 5<c-w><
@@ -236,6 +234,10 @@
 "============================================================================================================
 	"Ez a helpben fontos, eredetilega  CTRL-G az az aktulis fájl infoit mutatja.
 		noremap <C-g> <C-]>
+	"Timestamp beállítások
+		map <f2> A<C-R>=strftime(" [%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
+		nmap <leader>ts A<C-R>=strftime(" [%m.%d. %H:%M:%S]")<CR><Esc>
+		nmap <leader>tl A<C-R>=strftime(" [%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
 "============================================================================================================
 "						SHELL BEÁLLíTÁSOK	
 "============================================================================================================
