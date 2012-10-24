@@ -1,0 +1,17 @@
+map s /
+map S ?
+map . :
+map - '
+map j 3j
+map k 3k
+map <C-h> gT
+map <C-l> gt
+set hintkeys=dsafrewqtgcx
+set hintkeysdisplayuppercase=1
+set showstatus=1
+set autocomplete_prev=<S-Tab>
+set autocomplete_next=<Tab>
+set autocomplete_prev_10=<C-Tab>
+set autocomplete_next_10=<M-Tab>
+set enable_vrome_key=<C-i>
+
