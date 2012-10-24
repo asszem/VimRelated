@@ -4,13 +4,51 @@
 Insert módban átmappingoltam CTRL-L sor kiegészítésre és CTRL-f filenév kiegészítésre
 CTRL-SHIFT-nyilak
 	- Az ablakok méretét növeli/csökkenti a megfelelõ módon
+CTRL-P - a NerdTree mellett még egy fájlmegnyitó cucc.
+U - Gundo plugin toggle
+============================================================================================================
+						Ctrl-P Plugin parancsok
+============================================================================================================
+	C-p
+		- Elindítja a CtrlP-t. (ki hitte volna :D)
+	Ha már elindult a Ctrl-P prompt:
+	C-d
+		- File/Path keresés között vált 
+	C-f
+		- Files/Buffers/MRU (MostRecentUsed)/Dirs/Bookmarked Dirs között vált
+	C-j/k
+		- a találati listán mozog fel-le
+	C-n/p
+		- a prompt historyban lépked elõre/hátra
+	c-t
+		- új tabon nyitja meg a kiválasztott fájlt
+	c-v/s
+		- Vertikális/horizontális Splitben nyitja meg
+	c-z
+		- mark/unmark fájlok megnyitáshoz
+	c-o
+		- a markolt fájlokat nyitja meg
+	c-r
+		- regexp és string mód között váltogat
+	:CtrlP...
+		- különbözõ módokban hívja meg 
+	:CtrlPBookmarkDirAdd
+		- Könyvjelzõket ment az aktuális direktoryhoz
+	,pb
+		- Buffer nézetben nyitja meg a CTRL-p-t.
+	,pr
+		- mostRecentused nézetben nyitja meg CTRL-p-t
+	?
+		- elindítja a súgót
 ============================================================================================================
 						MAPLEADEREK, LEADER
 ============================================================================================================
 	,g
 		- a dokumentum aljára ugrik (G)
 	,n
-		- NERDTree indítása
+		- NERDTree toggle
+	,m
+		- marks '<betû> indítása 
 	,h ,j ,k ,l
 		- ablakok között vált
 	,cd

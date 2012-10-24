@@ -1,5 +1,5 @@
 "============================================================================================================
-"						aVIMRC beállítások 1.2
+"						aVIMRC beállítások 1.5
 "============================================================================================================
 "						Plugin beállítások
 "============================================================================================================
@@ -11,10 +11,24 @@
 	filetype indent off
 "Nerdtree plugin
 	let NERDTreeShowBookmarks = 1
+	let NerdTreeChDirMode=2 "make sure the working directory is set correctly
+	nnoremap <Leader>n :NERDTreeToggle .<cr>
+"CtrlP plugin
+	"CTRLP plugin Contrlo-P-re az MRU nézetet nyissa meg
+		nnoremap <c-p> :CtrlPMRUFiles<cr>
+		let g:ctrlp_cmd = 'CtrlPMRUFiles'
+	"CtrlP plugin MostRecentUsed nézetben megnyitása
+		nnoremap <leader>pm :CtrlPMRUFiles<cr>
+	"CtrlP plugin Files nézetben megnyitása
+		nnoremap <leader>pf :CtrlPMRUFiles<cr>
+	"CtrlP plugin Buffers nézetben megnyitása
+		nnoremap <leader>pb :CtrlPBuffer<cr>
+	"Ctrlp plugin BookmarkDir nézetben nyitás
+		nnoremap <leader>pbd :CtrlPBookmarkDir<cr>
 "============================================================================================================
 "						Gyári beállítások
 "============================================================================================================
-	set nocompatible
+	"set nocompatible
 	source $VIMRUNTIME/vimrc_example.vim
 	source $VIMRUNTIME/mswin.vim
 	behave mswin
@@ -123,7 +137,7 @@
 	"Mindidg legyen sorszámozás
 		set number 
 	"Relative line number
-		set rnu 
+		"set rnu 
 	"Mutatja hol a kurzor
 		set cursorline 
 	"14 space-t szúr be shobreak után
@@ -143,8 +157,8 @@
 		let mapleader=","
 	"Dokumentum aljára ugrás
 		nnoremap <Leader>g G<cr>
-	"Nerdtree indítása
-		nnoremap <Leader>n :NERDTree<cr>
+	"marks-ra ugrás
+		nnoremap <Leader>m '
 	"Ablakkezelés mapleaderekkel
 		nnoremap <Leader>h <C-w>h
 		nnoremap <Leader>l <C-w>l
@@ -178,6 +192,8 @@
 		inoremap <C-k> <down>
 	"Insert módban így egészíti ki
 		set completeopt=longest,menuone,preview
+	"Gundo toggle átmappolása
+		noremap U :GundoToggle<cr>
 "============================================================================================================
 "						TAB és WINDOWS KEZELÉS
 "============================================================================================================
