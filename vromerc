@@ -14,4 +14,4 @@ set autocomplete_next=<Tab>
 set autocomplete_prev_10=<C-Tab>
 set autocomplete_next_10=<M-Tab>
 set enable_vrome_key=<C-i>
-
+map x D
