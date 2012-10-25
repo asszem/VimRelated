@@ -1,4 +1,4 @@
-"aVIMRC beállítások 1.7 [2012.10.24. szerda | 13:47:22]
+"aVIMRC beállítások 1.8 [2012.10.25. csütörtök | 14:48:48]
 "============================================================================================================
 "						MAPLEADER BEÁLLÍTÁSOK
 "============================================================================================================
@@ -220,9 +220,11 @@
 "============================================================================================================
 "						FUNKCIÓ BILLENTYÛ MAPPINGEK
 "============================================================================================================
-	"Bufferek között vált F2-F3-ra
-		nnoremap <F3> :bnext <CR>
-		nnoremap <F2> :bprevious<CR>
+	"Alternatív (elõzõleg megnyitott) buferre vált
+		nnoremap <F2> :b#<cr>
+	"Bufferek között vált F4-F3-ra
+		nnoremap <F4> :bnext <CR>
+		nnoremap <F3> :bprevious<CR>
 	"Minden nyitott buffert elment 
 		"map <F5> :wa! <bar> mkview <cr>
 		map <F5> :wa!<cr>
@@ -235,9 +237,11 @@
 	"Ez a helpben fontos, eredetilega  CTRL-G az az aktulis fájl infoit mutatja.
 		noremap <C-g> <C-]>
 	"Timestamp beállítások
-		map <f2> A<C-R>=strftime(" [%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
 		nmap <leader>ts A<C-R>=strftime(" [%m.%d. %H:%M:%S]")<CR><Esc>
 		nmap <leader>tl A<C-R>=strftime(" [%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
+		"Az aktuális pozíciótól törli a tartalmat és új timestampot
+		"szúr be (timestamp long UPDATE)
+		nmap <leader>tlu C<C-R>=strftime("[%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
 "============================================================================================================
 "						SHELL BEÁLLíTÁSOK	
 "============================================================================================================
