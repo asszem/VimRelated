@@ -1,20 +1,17 @@
-Vim Parancsok - v.1.1 [2012.10.25. csütörtök | 14:51:33]
+Vim Parancsok - v.1.2 [2012.10.25. csütörtök | 21:10:44]
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
 :so % - az aktuális buffer sourceolása --avimrc szerkesztésnél ez baromi jó lesz
 :%bd - az összes buffert törli
-Insert módban átmappingoltam CTRL-L sor kiegészítésre és CTRL-f filenév kiegészítésre
-CTRL-SHIFT-nyilak
-	- Az ablakok méretét növeli/csökkenti a megfelelõ módon
-CTRL-P - a NerdTree mellett még egy fájlmegnyitó cucc.
+<F1> - kilistázza az összes buffert és belép buffer választó módba
+<F2> - alternative buffer switch
+<F3> - prev buffer
+<F4> - next buffer
 U - Gundo plugin toggle
 ,ts - rövid time stampet szúr be [10.24. 13:44:52]
 ,tl - timestamp long: [2012.10.24. szerda | 13:45:19]
 ,tlu - a long timestampot updateli (vagyis az aktuális kurzor pozíciótól jobbra mindent töröl és új ts szúr be)
-<F2> - alternative buffer switch
-<F3> - prev buffer
-<F4> - next buffer
 ============================================================================================================
 						Ctrl-P Plugin parancsok
 ============================================================================================================
@@ -74,6 +71,8 @@ U - Gundo plugin toggle
 		- short timestampet szúr be [10.24. 13:46:26]
 	,tl
 		- long timestampet szúr be [2012.10.24. szerda | 13:46:12]
+	,bl
+		- Buffer-list, kilistázza a buffereket és belép választó módba
 ============================================================================================================
 						NORMAL MÓD MAPPINGOK
 ============================================================================================================
@@ -85,6 +84,10 @@ U - Gundo plugin toggle
 		- sor eleje (^ helyett)
 	L 
 		- sor vége ($ helyett)
+	<F1> 
+		- kilistázza az összes buffert és belép buffer választó módba
+	<F2> 
+		- alternative buffer switch
 	<F3>-<F4>
 		- elõzõ/következõ buffer
 	<F5>
@@ -422,6 +425,8 @@ U - Gundo plugin toggle
 		- jobbra legszélsõ tab (tabLast)
 	CTRL-h/l 
 		- tabok között vált (saját VIMRC remap)
+	:tab split
+		- az aktuális ablakot új tabban nyitja meg
 ============================================================================================================
 					BUFFERKEZELÉS, BUFFERS, BUFFER
 ============================================================================================================

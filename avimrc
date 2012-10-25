@@ -1,4 +1,4 @@
-"aVIMRC beállítások 1.8 [2012.10.25. csütörtök | 14:48:48]
+"aVIMRC beállítások 1.9 [2012.10.25. csütörtök | 21:10:17]
 "============================================================================================================
 "						MAPLEADER BEÁLLÍTÁSOK
 "============================================================================================================
@@ -66,7 +66,9 @@
 		set wildmenu 
 	"A wildmode-ban kiírja a lehetõségeket is függõleges menüben
 		"A longest azt csinálja, hogy csak az elsõ ambiguitásig egészíti ki
-		set wildmode=list:longest
+		"Vesszõ után a full pedig a második tabra már teljesen
+		"kiegészíti
+		set wildmode=list:longest,full
 "============================================================================================================
 "				FILE, BACKUP, MAPPA BEÁLLÍTÁSOK	
 "============================================================================================================
@@ -220,6 +222,11 @@
 "============================================================================================================
 "						FUNKCIÓ BILLENTYÛ MAPPINGEK
 "============================================================================================================
+	"Buffer kilistázás és belépés választás módba
+		nnoremap <f1> :ls!<cr>:b 
+		" ,bl buffers-list kombóra is beállítom, meglátjuk idõvel
+		" melyiket lesz kényelmesebb használni
+		nnoremap <Leader>bl :ls!<cr>:b 
 	"Alternatív (elõzõleg megnyitott) buferre vált
 		nnoremap <F2> :b#<cr>
 	"Bufferek között vált F4-F3-ra
