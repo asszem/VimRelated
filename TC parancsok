@@ -1,0 +1,40 @@
+wincmd fájlból a [Shortcut] rész
+[Shortcuts]
+C+DOWN=cm_DirectoryHotlist
+RIGHT=cm_GoToDir
+LEFT=cm_GoToParent
+S+LEFT=cm_GotoPreviousDir
+S+RIGHT=cm_GotoNextDir
+C+RIGHT=cm_TransferRight
+S+DOWN=cm_DirectoryHistory
+C+LEFT=cm_TransferLeft
+C+P=cm_CopyFullNamesToClip
+
+Belépés/kilépés mappába
+	Left
+		- 2002 go to parent (a mappastruktúrában lép vissza, nem a historyban)
+	Right
+		- 2003 go to dir (ugyanaz mint a Shift-right)
+Back és Forward
+	Shift-Left
+		- 570 cm_GotoPreviousDir 
+	Shift-Right
+		- 571 cm_GotoNextDir
+Másik ablakban megnyitás
+	CTRL-Right
+		- 2025 cm_TransferRight
+	Ctrl-Left
+		- 2024 cm_TransferLeft
+Directory hotlist és history megnyitása
+	CTRL-Down
+		- 526 cm_DirectoryHotlist (Directory popup menu)
+	Shift-Down
+		- 572 cm_DirectoryHistory
+Teljes útvonal másolása vágólapra
+	CTRL-P
+		- 2018 cm_CopyFullNamesToClip
+Előző tab (mint a VIM-ben)
+	CTRL-H
+		- cm_SwitchToPreviousTab
+	CTRL-L
+		- cm_SwitchToNextTab

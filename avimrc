@@ -1,4 +1,4 @@
-"aVIMRC beállítások 1.9 [2012.10.25. csütörtök | 21:10:17]
+"aVIMRC beállítások 2.0   [2012.10.30. kedd | 08:45:36]
 "============================================================================================================
 "						MAPLEADER BEÁLLÍTÁSOK
 "============================================================================================================
@@ -15,7 +15,9 @@
 "Nerdtree plugin
 	let NERDTreeShowBookmarks = 1
 	let NerdTreeChDirMode=2 "make sure the working directory is set correctly
-	nnoremap <Leader>n :NERDTreeToggle .<cr>
+	nnoremap <Leader>n :NERDTree<cr>
+	nnoremap <Leader>nf :NERDTreeFind<cr>
+	nnoremap <Leader>nt :NERDTreeToggle<cr>
 "CtrlP plugin
 	"CTRLP plugin Contrlo-P-re az MRU nézetet nyissa meg
 		nnoremap <c-p> :CtrlPMRUFiles<cr>
@@ -26,6 +28,7 @@
 		nnoremap <leader>pf :CtrlPMRUFiles<cr>
 	"CtrlP plugin Buffers nézetben megnyitása
 		nnoremap <leader>pb :CtrlPBuffer<cr>
+		nnoremap <c-b> :CtrlPBuffer<cr>
 	"Ctrlp plugin BookmarkDir nézetben nyitás
 		nnoremap <leader>pbd :CtrlPBookmarkDir<cr>
 "============================================================================================================
@@ -88,8 +91,10 @@
 		set autoread
 		set autowrite
 "============================================================================================================
-"						KERESÉSI BEÁLLÍTÁSOK
+"						KERESÉSI és SUBSTITUTE BEÁLLÍTÁSOK
 "============================================================================================================
+	"Substitute kezdése egyszerûbben
+		nnoremap <leader>s :%s,
 	"Keresés ne legyen betûérzékeny
 		set ignorecase 
 	"Ha csak kisbetûvel keresek, nem érzékeny, ha van benne nagybetû is, akkor igen.
@@ -125,6 +130,8 @@
 	"A menük eltüntetése, csak a tab marad meg
 		set guioptions=ae
 		"set go-=T 
+	"A tabokban csak a fájlnév, ne a path jelenjen meg
+		set guitablabel=%t
 	"Sortörést állítja be (jobb oldalon nem megy ki margóig a szöveg)
 		set linebreak 
 	"Kicsit szellõsebb sorokat állít be.
@@ -134,7 +141,8 @@
 	"Mindig mutasson státuszsort
 		set laststatus=2 
 	"Beállítja, a softtabok értékét 8-re
-		set shiftwidth=8
+		set shiftwidth=4
+		set tabstop=4
 	"Beállítja, hogy a tabok is a shiftwidth értéke szerint menjenek
 		set smarttab
 	"Automatikuisan behúzza a sorokat.
@@ -160,7 +168,8 @@
 "============================================================================================================
 	"ESC gomb átmappolása
 		imap ii <Esc>
-		imap <S-Space> <Esc>
+	"Shift-space: save all
+		nnoremap <S-Space> :wa!<cr>
 	"ENTER-re a képernyõ közepére igazítja az aktuális sort
 		nnoremap <cr> zvzz
 	"Kurzormozgatás átmappolása
@@ -223,7 +232,7 @@
 "						FUNKCIÓ BILLENTYÛ MAPPINGEK
 "============================================================================================================
 	"Buffer kilistázás és belépés választás módba
-		nnoremap <f1> :ls!<cr>:b 
+		nnoremap <f1> :ls<cr>:b 
 		" ,bl buffers-list kombóra is beállítom, meglátjuk idõvel
 		" melyiket lesz kényelmesebb használni
 		nnoremap <Leader>bl :ls!<cr>:b 
@@ -246,6 +255,7 @@
 	"Timestamp beállítások
 		nmap <leader>ts A<C-R>=strftime(" [%m.%d. %H:%M:%S]")<CR><Esc>
 		nmap <leader>tl A<C-R>=strftime(" [%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
+		nmap <leader>td O<C-R>=strftime("%Y.%m.%d.")<CR><Esc>
 		"Az aktuális pozíciótól törli a tartalmat és új timestampot
 		"szúr be (timestamp long UPDATE)
 		nmap <leader>tlu C<C-R>=strftime("[%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>

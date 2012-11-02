@@ -1,17 +1,9 @@
-Vim Parancsok - v.1.2 [2012.10.25. csütörtök | 21:10:44]
+Vim Parancsok - v.1.2 [2012.10.30. kedd | 08:48:56]
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
-:so % - az aktuális buffer sourceolása --avimrc szerkesztésnél ez baromi jó lesz
-:%bd - az összes buffert törli
-<F1> - kilistázza az összes buffert és belép buffer választó módba
-<F2> - alternative buffer switch
-<F3> - prev buffer
-<F4> - next buffer
-U - Gundo plugin toggle
-,ts - rövid time stampet szúr be [10.24. 13:44:52]
-,tl - timestamp long: [2012.10.24. szerda | 13:45:19]
-,tlu - a long timestampot updateli (vagyis az aktuális kurzor pozíciótól jobbra mindent töröl és új ts szúr be)
+CTRL-B - CtrlP Buffer nézetben
+,nt - NerdTreeToggle
 ============================================================================================================
 						Ctrl-P Plugin parancsok
 ============================================================================================================
@@ -56,7 +48,9 @@ U - Gundo plugin toggle
 	,g
 		- a dokumentum aljára ugrik (G)
 	,n
-		- NERDTree toggle
+		- NERDTree open (nem toggle, Q-val lehet becsukni)
+	,nf
+		- NerdTreeFind az aktuális file-ra állítja az NT ablakot
 	,m
 		- marks '<betû> indítása 
 	,h ,j ,k ,l
@@ -67,6 +61,8 @@ U - Gundo plugin toggle
 		- kikapcsolja a :set autochdir opciót
 	,space
 		- az utolsó keresés eredményének highlightolását törli
+	,td
+		- time-date, csak az aktuális dátumot szúrja be 2012.10.26., egy sorral feljebb
 	,ts
 		- short timestampet szúr be [10.24. 13:46:26]
 	,tl
@@ -251,6 +247,7 @@ U - Gundo plugin toggle
 		- CTRL-Space gombra átmappolva
 	:noh 
 		- no highlight, a legutóbbi keresés highlightolását kapcsolja ki.
+		- ,space-re is ez van mappingolva
 	q/ 
 		- legutóbbi keresési lista
 	// 
@@ -277,6 +274,8 @@ U - Gundo plugin toggle
 		- csak a teljes szót helyettesíti
 			példa: \<alma\> az "almafa" szóban nem helyettesíti az alma kifejezést
 	\(vagyez\|vagyemez\) - a két szó bármelyik elõfordulása
+	& 
+		- megismétli a legutóbbi substitutiont
 ============================================================================================================
 					KIJELÖLÉS, VISUAL MÓD, VIZUAL
 ============================================================================================================
