@@ -1,14 +1,55 @@
+viatc - ez az a plugin, ami vimesíti a TC-t, viszont ez megváltoztat pár dolgot
+	telepítés
+		- pluginként nem megy
+		- kitömörítve kell rakni valahová és az .exe file-t berakni a windows indítópultjába
+		- be lehet rakni TC-be is a Start menübe, és hozzá lehet rendelni shortcutot (pl. ctrl-alt-f1)
+	r
+		- rename, ezzel lehet átnevezni
+		- de még rename módban is megy a hjkl, ezért i-vel inzert módba kell lépni és úgy átnevezni
+	R
+		- multi Rename
+	hjkl
+		- szokásos navigáció
+	H/L
+		- history előre-hátra
+	u
+		- egy mappát fel
+	y 
+		- copy file name to clipboard
+	YY
+		- copy file name + path to clipboard
+	t
+		- új tabot nyit és átvált
+	T
+		- új tabot nyit, de marad az eredetin
+	d
+		- directory hotlist (mint a CTRL-le)
+		- azért jó, mert a hjkl itt is működik
+		- legalábbis a belső menükben
+	gt/gT
+		- tabok között vált előre/hátra
+	gc
+		- close tab
+	gC
+		- close all tab
+	gl
+		- toggle tab lock/unlock
+	zm
+		- Maximize TC
+		- a z megnyomására feljön egy hint ablak a lehetséges z parancsokról
+	:help
+		- megnyitja a helpet
 wincmd fájlból a [Shortcut] rész
-[Shortcuts]
-C+DOWN=cm_DirectoryHotlist
-RIGHT=cm_GoToDir
-LEFT=cm_GoToParent
-S+LEFT=cm_GotoPreviousDir
-S+RIGHT=cm_GotoNextDir
-C+RIGHT=cm_TransferRight
-S+DOWN=cm_DirectoryHistory
-C+LEFT=cm_TransferLeft
-C+P=cm_CopyFullNamesToClip
+	[Shortcuts]
+	C+DOWN=cm_DirectoryHotlist
+	RIGHT=cm_GoToDir
+	LEFT=cm_GoToParent
+	S+LEFT=cm_GotoPreviousDir
+	S+RIGHT=cm_GotoNextDir
+	C+RIGHT=cm_TransferRight
+	S+DOWN=cm_DirectoryHistory
+	C+LEFT=cm_TransferLeft
+	C+P=cm_CopyFullNamesToClip
 
 Belépés/kilépés mappába
 	Left
@@ -38,3 +79,5 @@ Előző tab (mint a VIM-ben)
 		- cm_SwitchToPreviousTab
 	CTRL-L
 		- cm_SwitchToNextTab
+Keyboard shortcutok settings megnyitása
+	CTRL-ALT-K
