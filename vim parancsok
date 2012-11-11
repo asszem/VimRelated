@@ -1,11 +1,8 @@
-Vim Parancsok - v.1.3 [2012.11.03. szombat | 01:05:10]
+Vim Parancsok - v.1.3 [2012.11.11. vasárnap | 11:35:11]
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
-CTRL-B - CtrlP Buffer nézetben
-,nt - NerdTreeToggle
-,d - !-et +-ra alakítja a sor elején (todo listhez)
-,dd - a +-t alakítja vissza !-jellé sor elején (szintén todo listhez)
+,ma - marksok mutatása :marks
 ============================================================================================================
 						Ctrl-P Plugin parancsok
 ============================================================================================================
@@ -70,11 +67,13 @@ CTRL-B - CtrlP Buffer nézetben
 	,tl
 		- long timestampet szúr be [2012.10.24. szerda | 13:46:12]
 	,bl
-		- Buffer-list, kilistázza a buffereket és belép választó módba
+		- Buffer-list, kilistázza a buffereket és belép választó módba, ez F1 is
 	,d 
 		- !-et +-ra alakítja a sor elején (todo listhez)
 	,dd 
 		- a +-t alakítja vissza !-jellé sor elején (szintén todo listhez)
+	,s
+		- belép search módba, very magic flaggel :%s,\v
 ============================================================================================================
 						NORMAL MÓD MAPPINGOK
 ============================================================================================================
@@ -106,16 +105,6 @@ CTRL-B - CtrlP Buffer nézetben
 		- Az ablakok méretét növeli/csökkenti a megfelelõ módon
 	ENTER
 		- a képernyõ közepére igazítja a kurzort
-============================================================================================================
-						INSERT MÓD MAPPINGOK
-============================================================================================================
-	L 
-		- sort automatikusan megpróbálja kiegészíteni
-	F
-		- fájlnév kiegészítés
-	CTRL-J
-	CTRL-K
-		- mozgás le-fel sorokban 
 ============================================================================================================
 						MOZGÁS, KURZORKEZELÉS
 ============================================================================================================
@@ -219,6 +208,15 @@ CTRL-B - CtrlP Buffer nézetben
 	CTRL-xf 
 		- a mappában lévõ fájlokra egészíti ki a beírt szöveget, alul látszik, mikkel lehet le-föl haladni
 ============================================================================================================
+						INSERT MÓD MAPPINGOK
+============================================================================================================
+	CTRL-L 
+		- sort automatikusan megpróbálja kiegészíteni
+	CTRL-F
+		- fájlnév kiegészítés
+	CTRL-J / CTRL-K
+		- mozgás le-fel sorokban 
+============================================================================================================
 					COPY-PATE, MÁSOLÁS, YANK, PUT
 ============================================================================================================
 	:reg 
@@ -256,6 +254,7 @@ CTRL-B - CtrlP Buffer nézetben
 		- ,space-re is ez van mappingolva
 	q/ 
 		- legutóbbi keresési lista
+		- ctrl-c lép ki
 	// 
 		- legutóbbi keresést megismétli
 	* 
@@ -485,10 +484,6 @@ CTRL-B - CtrlP Buffer nézetben
 		- ez is megnyitja a böngit.
 	'0 
 		- a legutoljára megnyitott fájlt nyitja meg (VIM újraindításkor jól jön)
-	gf 
-		- goto file - megnyitja a kurzor alatt lévõ szót, mint file, ha van. Visuallal lehet több szót kijelölni 
-	ctrl-xf 
-		- a mappában lévõ fájlokra egészíti ki a beírt szöveget, alul látszik, mikkel lehet le-föl haladni
 ============================================================================================================
 					REGISTERS
 ============================================================================================================
@@ -511,6 +506,7 @@ CTRL-B - CtrlP Buffer nézetben
 		- megjelöli a helyet, más fájlból is elérhetõ
 	'{betû} 
 		- odaugrik a mark-ra (shift-1 a ' karakter)
+		- átmappoltam ,m -re is
 	'. 
 		- legutolsó változtatás helyére ugrik
 	'" 

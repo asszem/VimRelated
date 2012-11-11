@@ -1,4 +1,4 @@
-"aVIMRC beállítások 2.1 [2012.11.03. szombat | 01:05:33]
+"aVIMRC beállítások 2.3 [2012.11.11. vasárnap | 11:30:27]
 "============================================================================================================
 "						MAPLEADER BEÁLLÍTÁSOK
 "============================================================================================================
@@ -93,8 +93,8 @@
 "============================================================================================================
 "						KERESÉSI és SUBSTITUTE BEÁLLÍTÁSOK
 "============================================================================================================
-	"Substitute kezdése egyszerûbben
-		nnoremap <leader>s :%s,
+	"Substitute kezdése egyszerûbben, automatikusan kieszképelve minden regexet
+		nnoremap <leader>s :%s,\v
 	"Keresés ne legyen betûérzékeny
 		set ignorecase 
 	"Ha csak kisbetûvel keresek, nem érzékeny, ha van benne nagybetû is, akkor igen.
@@ -105,9 +105,9 @@
 		set hlsearch 
 	"Kiszedi a keresés kiemelését
 		noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-	"Space-re keres elõre, C-Space-re visszafelé
-		noremap <Space> /
-		noremap <C-Space> ?
+	"Space-re keres elõre, C-Space-re visszafelé, regexek very magicre állítva
+		noremap <Space> /\v
+		noremap <C-Space> ?\v
 	" Keep search matches in the middle of the window and pulse the line when moving to them.
 		nnoremap n nzzzv
 		nnoremap N Nzzzv
@@ -198,8 +198,10 @@
 		nnoremap <Leader>g G<cr>
 	"marks-ra ugrás
 		nnoremap <Leader>m '
+	"marksok mutatása
+		nnoremap <Leader>ma :marks<cr>
 "============================================================================================================
-"						TAB és WINDOWS KEZELÉS
+"						TAB és WINDOWS ABLAK KEZELÉS
 "============================================================================================================
 	"Tabkezeléshez tabváltás balra-jobbra CTRL H és L gombokkal, illetve "CTRL balra és jobbra nyilakkal
 		noremap <C-l> gt
@@ -213,6 +215,9 @@
 		nnoremap <up> <C-w>k
 		noremap <C-j> <C-w>j
 		noremap <C-k> <C-w>k
+	"A TAB gomb normál módban az ablakok között váltogat
+		nnoremap <tab> <c-w>w
+		nnoremap <s-tab> <c-w>W
 	"Ablakkezelés mapleaderekkel
 		nnoremap <Leader>h <C-w>h
 		nnoremap <Leader>l <C-w>l
@@ -228,6 +233,9 @@
 	"Mindig mentse az aktuális view-t a fájlhoz -> kikapcsoltam, mert sok hibát dobott.
 		"au BufWinLeave * mkview
 		"au BufWinEnter * silent loadview
+	"Az új split mindig jobbra és lent nyíljon.
+		set splitright
+		set splitbelow
 "============================================================================================================
 "						FUNKCIÓ BILLENTYÛ MAPPINGEK
 "============================================================================================================
@@ -259,9 +267,12 @@
 		"Az aktuális pozíciótól törli a tartalmat és új timestampot
 		"szúr be (timestamp long UPDATE)
 		nmap <leader>tlu C<C-R>=strftime("[%Y.%m.%d. %A \| %H:%M:%S]")<CR><Esc>
-	"ToDo listhez ,d és ,dd parancsok
+	"ToDo listhez 
+		" ,d a sor elejét +ra alakítja (DONE)
+		" ,dd a sor elejét !-ra alakítja ("Don'tDone")
 		nmap <leader>d :s,\(^\s*\)!,\1+,e<cr>:noh<cr>
-		nmap <leader>dd :s,\(^\s*\)+,\1!,e<cr>:noh<cr>
+		set magic
+		nmap <leader>dd :s,\(^\s*\)[+\|-],\1!,e<cr>:noh<cr>
 "============================================================================================================
 "						SHELL BEÁLLíTÁSOK	
 "============================================================================================================
