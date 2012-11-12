@@ -2,7 +2,10 @@ Vim Parancsok - v.1.3 [2012.11.11. vasárnap | 11:35:11]
 ============================================================================================================
 						Új parancsok memorizáláshoz
 ============================================================================================================
-,ma - marksok mutatása :marks
+,ma 
+	- marksok mutatása :marks
+ctrl-w p
+	- elõzõ ablakra ugrik (previos window)
 ============================================================================================================
 						Ctrl-P Plugin parancsok
 ============================================================================================================
@@ -375,22 +378,30 @@ Vim Parancsok - v.1.3 [2012.11.11. vasárnap | 11:35:11]
 		- ablakkezelõ parnacsok
 	CTRL-W_hjkl 
 		- Megfelelõ irányban lévõ ablakba mozdítja a kurzort
-	CTRL-W_w 
+	ALT-hjkl
+		- Megfelelõ irányban lévõ ablakba mozdítja a kurzort (egyedi mapping)
+	CTRL-W w 
 		- a nyitott ablakok között váltogat
-	CTRL-W_x 
+	CTRL-W x 
 		- felcseréli egy másik ablakkal az éppen nézet ablakot (azaz a fókusz ugyanott marad, csak más ablak kerül ugyanarra a helyre)
-	CTRL-W_c 
+	CTRL-W c 
 		- close
-	CTRL-W_q 
+	CTRL-W q 
 		- quit
-	CTRL-W_T 
+	CTRL-W T 
 		- új tabon nyitja meg az aktuális ablakokt
-	CTRL-W_r 
+	CTRL-W r 
 		- eggyel lejebb mozgatja az aktuális ablakot
-	CTRL-W_o 
+	CTRL-W o 
 		- becsukja az összes többi ablakot :on parancs is
 	CTRL-j/k
 		- windowsok között vált (saját VIMRC remap)
+	CTRL-w p
+		- elõzõ ablakra ugrik (previous)
+	CTRL-w b
+		- legalsó ablakra ugrik (bottom)
+	CTRL-w t
+		- legfelsõ ablakra ugrik (top)
 	:sp(lit) {filenév} 
 		- az aktuális ablakból még egyet csinál, vízszíntesen (ha megadok filenevet, akkor azt nyitja oda meg)
 	:vp {filenév} 

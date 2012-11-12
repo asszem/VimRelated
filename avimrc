@@ -223,6 +223,11 @@
 		nnoremap <Leader>l <C-w>l
 		nnoremap <Leader>j <C-w>j
 		nnoremap <Leader>k <C-w>k
+	" ALT-HJKL is ablakok között váltogat
+		nnoremap <m-h> <c-w>h
+		nnoremap <m-l> <C-w>l
+		nnoremap <m-j> <C-w>j
+		nnoremap <m-k> <C-w>k
 	" Window resizing
 		nnoremap <S-C-left> 5<c-w>>
 		nnoremap <S-C-right> 5<c-w><
