@@ -1,10 +1,10 @@
-"aVIMRC beállítások 2.3 [2012.11.11. vasárnap | 11:30:27]
+"aVIMRC beállítások 3.0 [2012.11.20. kedd | 23:41:25]
 "============================================================================================================
-"						MAPLEADER BEÁLLÍTÁSOK
+"~~	MAPLEADER BEÁLLÍTÁSOK ~~
 "============================================================================================================
 	let mapleader=","
 "============================================================================================================
-"						Plugin beállítások
+"~~	Plugin beállítások ~~
 "============================================================================================================
 "Pathogen plugin 
 	set nocp
@@ -32,7 +32,7 @@
 	"Ctrlp plugin BookmarkDir nézetben nyitás
 		nnoremap <leader>pbd :CtrlPBookmarkDir<cr>
 "============================================================================================================
-"						Gyári beállítások
+"~~	Gyári beállítások ~~
 "============================================================================================================
 	"set nocompatible
 	source $VIMRUNTIME/vimrc_example.vim
@@ -63,7 +63,7 @@
 	  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 	endfunction
 "============================================================================================================
-"						WILDMENU beállítások
+"~~	WILDMENU beállítások ~~
 "============================================================================================================
 	"Ha van lehetõség, akkor menüben mutatja meg a TAB utáni autocomplete lehetõségeket
 		set wildmenu 
@@ -73,7 +73,7 @@
 		"kiegészíti
 		set wildmode=list:longest,full
 "============================================================================================================
-"				FILE, BACKUP, MAPPA BEÁLLÍTÁSOK	
+"~~	FILE, BACKUP, MAPPA BEÁLLÍTÁSOK	 ~~
 "============================================================================================================
 	"Ide rakja a backupot, swap file-t pedig ne csináljon
 		set nobackup
@@ -91,7 +91,7 @@
 		set autoread
 		set autowrite
 "============================================================================================================
-"						KERESÉSI és SUBSTITUTE BEÁLLÍTÁSOK
+"~~	KERESÉSI és SUBSTITUTE BEÁLLÍTÁSOK ~~
 "============================================================================================================
 	"Substitute kezdése egyszerûbben, automatikusan kieszképelve minden regexet
 		nnoremap <leader>s :%s,\v
@@ -116,7 +116,7 @@
 		nnoremap g; g,zz
 		nnoremap g, g;zz
 "============================================================================================================
-"						GUI beállítások
+"~~	GUI beállítások ~~
 "============================================================================================================
 	"Beállítja a morning színsémát, az általam testreszabott státuszsorral
 		:color peachpuff 
@@ -164,7 +164,7 @@
 		set sidescroll=1
 		set sidescrolloff=10
 "============================================================================================================
-"					KURZORMOZGATÁS, SZERKESZTLÉS MAPPINGEK
+"~~	KURZORMOZGATÁS, SZERKESZTLÉS MAPPINGEK ~~
 "============================================================================================================
 	"ESC gomb átmappolása
 		imap ii <Esc>
@@ -193,7 +193,7 @@
 	"Insert módban így egészíti ki
 		set completeopt=longest,menuone,preview
 	"Gundo toggle átmappolása
-		noremap U :GundoToggle<cr>
+		nnoremap U :GundoToggle<cr>
 	"Dokumentum aljára ugrás
 		nnoremap <Leader>g G<cr>
 	"marks-ra ugrás
@@ -201,7 +201,7 @@
 	"marksok mutatása
 		nnoremap <Leader>ma :marks<cr>
 "============================================================================================================
-"						TAB és WINDOWS ABLAK KEZELÉS
+"~~	TAB és WINDOWS ABLAK KEZELÉS ~~
 "============================================================================================================
 	"Tabkezeléshez tabváltás balra-jobbra CTRL H és L gombokkal, illetve "CTRL balra és jobbra nyilakkal
 		noremap <C-l> gt
@@ -242,7 +242,7 @@
 		set splitright
 		set splitbelow
 "============================================================================================================
-"						FUNKCIÓ BILLENTYÛ MAPPINGEK
+"~~	FUNKCIÓ BILLENTYÛ MAPPINGEK ~~
 "============================================================================================================
 	"Buffer kilistázás és belépés választás módba
 		nnoremap <f1> :ls<cr>:b 
@@ -260,8 +260,10 @@
 	"Minden tabot elment egy "sessionsave" nevû file-ba.
 		map <F6> :mksession! c:\vimroot\sessionsave<cr>
 		map <F9> :so c:\vimroot\sessionsave <cr>
+	"Azoknak a soroknak kiírása global-al, amelyekben benne van a dupla ~ jel
+		map <F10> :g/\~\~<cr>
 "============================================================================================================
-"						EGYÉB BEÁLLÍTÁSOK
+"~~	EGYÉB BEÁLLÍTÁSOK ~~
 "============================================================================================================
 	"Ez a helpben fontos, eredetilega  CTRL-G az az aktulis fájl infoit mutatja.
 		noremap <C-g> <C-]>
@@ -278,8 +280,12 @@
 		nmap <leader>d :s,\(^\s*\)!,\1+,e<cr>:noh<cr>
 		set magic
 		nmap <leader>dd :s,\(^\s*\)[+\|-],\1!,e<cr>:noh<cr>
+	" foldmethodot indentre
+		nnoremap <leader>fi :set foldmethod=indent<cr>
+	" az egysoros behúzott sorokat is foldolja
+		"set foldminlines=0
 "============================================================================================================
-"						SHELL BEÁLLíTÁSOK	
+"~~	SHELL BEÁLLíTÁSOK	 ~~
 "============================================================================================================
 	"Mindig a PowerShell legyen a shell
 	"	set shell=powershell
@@ -288,6 +294,6 @@
 	"Help ehhez:
 		"http://juliankay.com/development/setting-up-vim-to-work-with-powershell/
 "============================================================================================================
-"						GÉPSPECIFIKUS BEÁLLÍTÁSOK
+"~~	GÉPSPECIFIKUS BEÁLLÍTÁSOK ~~
 "============================================================================================================
 	"set viewdir=d:\Dropbox\VIMDropbox\viewdir\
